@@ -4,12 +4,21 @@ Matrix::Matrix(unsigned cols = 0, unsigned rows = 0) :
     num_cols(cols),
     num_rows(rows)
 {
+    if (cols < 0 || rows < 0)
+    {
+    }
+
     Fill(cols, rows);
 }
 
-void Matrix::At(const unsigned& cols, const unsigned& rows)
+int Matrix::At(const unsigned& cols, const unsigned& rows) const
 {
+    return arr[cols][rows];
+}
 
+int& Matrix::At(const unsigned& cols, const unsigned& rows)
+{
+    return arr[cols][rows];
 }
 
 void Matrix::Fill(unsigned cols = 0, unsigned rows = 0)
@@ -19,6 +28,16 @@ void Matrix::Fill(unsigned cols = 0, unsigned rows = 0)
     {
         arr[count] = new unsigned[cols];
     }
+}
+
+int Matrix::GetNumRows() const
+{
+    return num_rows;
+}
+
+int Matrix::GetNumColumns() const
+{
+    return num_cols;
 }
 
 void Matrix::Remove()

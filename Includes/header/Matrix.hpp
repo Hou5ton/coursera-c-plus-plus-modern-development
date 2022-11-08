@@ -1,14 +1,20 @@
 ﻿#pragma once
 
 #include <array>
+#include <exception>
 
 class Matrix
 {
 public:
 	Matrix(unsigned cols = 0, unsigned rows = 0);
 
-	void At(const unsigned& cols, const unsigned& rows) const;
+	int At(const unsigned& cols, const unsigned& rows) const;
+	int& At(const unsigned& cols, const unsigned& rows);
+
 	void Fill(unsigned cols, unsigned rows);
+	int GetNumRows() const;
+	int GetNumColumns() const;
+
 	void Reset(unsigned cols = 0, unsigned rows = 0);
 	void Remove();
 
@@ -18,9 +24,8 @@ public:
 	}
 
 private:
-	unsigned** arr;
+	int** arr;
 
-	unsigned num_cols = 0;
-	unsigned num_rows = 0;
-
+	int num_cols;
+	int num_rows;
 };
