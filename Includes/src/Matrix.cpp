@@ -27,6 +27,7 @@ void Matrix::Remove()
     {
         delete[] arr[count];
     }
+    delete [] arr;
 }
 
 void Matrix::Reset(unsigned cols = 0, unsigned rows = 0)
